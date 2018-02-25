@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">
+Rakia (Bulgarian brandy) is home-made liquor(alcoholic drink). It can be made of grapes, plums or other fruits(even apples)!
+</p>
+<script src="scripts/p_06.js">
+    function extractText(text){
+        let string=document.getElementById(text).textContent;
+        let pattern =/\(([^()]+)\)/g;
+        let matches=pattern.exec(string);
+        let result=[];
+        while(matches){
+            result.push(matches[1]);
+            matches=pattern.exec(string);
+        }
+          return result.join("; ")
+    }
+</script>
+</body>
+</html>

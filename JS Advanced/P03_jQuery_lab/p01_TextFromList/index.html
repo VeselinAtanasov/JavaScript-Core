@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text from List</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="extractText.js"></script>
+</head>
+<body>
+<ul id="items">
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+</ul>
+<button onclick="extractText()">
+    Extract Text
+</button>
+<div id="result"></div>
+<script>
+//    function extractText() {
+//        let result = []
+//        $('#items li').each((index, element) => result.push(element.textContent));
+        //$('#items li').toArray().forEach( element => result.push(element.textContent));  //can be converted as ARRAY
+//        $('#result').text(result.join(", "));
+          // Here text() without parameter will return the text , if we insert string parameter all strings will be replaced with this string
+//    }
+</script>
+</body>
+</html>
