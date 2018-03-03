@@ -1,5 +1,4 @@
 function solution(command) {
-//console.log(this)
     switch (command) {
         case 'upvote':
             return this.upvotes++;
@@ -9,11 +8,9 @@ function solution(command) {
             return calculateScore(this);
     }
     function calculateScore(param) {
-        // console.log(param)
         let result = {
             upvotes: param.upvotes,
             downvotes: param.downvotes
-
         };
         result['raiting'] = "new";
         let totalVotes = param.upvotes - param.downvotes;

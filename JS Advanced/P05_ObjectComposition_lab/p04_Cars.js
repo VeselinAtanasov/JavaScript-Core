@@ -1,6 +1,4 @@
-
 function cars(cars) {
-    
     let processor= (function(){
         let map =new Map();
         
@@ -15,7 +13,7 @@ function cars(cars) {
             let obj=map.get(name);
             obj[prop]=propName;
             map.set(name,obj);
-        };
+        }
         function print(name) {
             let obj= map.get(name);
             let result=[];
@@ -23,8 +21,7 @@ function cars(cars) {
                 result.push(`${key}:${obj[key]}`);
             }
             console.log(result.join(", "));
-        };
-
+        }
         return {create,inherit,print,set};
     })();
 

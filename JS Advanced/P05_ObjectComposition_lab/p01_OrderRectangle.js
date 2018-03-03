@@ -6,7 +6,6 @@ function orderRectangles(rectangles) {
             height: Number(arr[1]),
             area: function () {
                 return this.width * this.height;
-
             },
             compareTo: function (rect) {
                 if (rect.area() === this.area()) {
