@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select and Print</title>
+    <style>
+        select { width: 100px }
+        .block { display: inline-block; vertical-align: top; text-align: center }
+        button { width: 60px }
+        #btnRight { display: block; margin-top: 20px }
+        #btnLeft { display: block; margin-top: 5px }
+        #btnPrint { display: block; margin-top: 5px }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div class="block">
+    <div>Available towns</div>
+    <select id="available-towns" size="5">
+        <option>Sofia</option>
+        <option>Varna</option>
+        <option>Pleven</option>
+    </select>
+</div>
+<div class="block">
+    <button id="btnRight" onclick="move('right')">&rightarrow;</button>
+    <button id="btnLeft" onclick="move('left')">&leftarrow;</button>
+    <button id="btnPrint" onclick="move('print')">Print</button>
+</div>
+<div class="block">
+    <div>Selected towns</div>
+    <select id="selected-towns" size="5">
+        <option>Plovdiv</option>
+        <option>Ruse</option>
+    </select>
+</div>
+<div id="output"></div>
+<script>
+    function move(command) {
+        switch(command){
+            case "right":
+                executeRight();
+                break;
+            case "left":
+                executeLeft();
+                break;
+            case "print":
+                executePrint();
+                break;
+        }
+        function executeRight(){
+            let selectedTown=$('#available-towns option:selected');
+            $('#selected-towns').append(`<option>${selectedTown.val()}</option>`);
+            selectedTown.remove()
+        }
+        function executeLeft(){
+            let selectedTown=$('#selected-towns option:selected');
+        //    console.log(selectedTown.val());
+            $('#available-towns').append(`<option>${selectedTown.val()}</option>`);
+            selectedTown.remove()
+        }
+        function executePrint(){
+            $('#output').empty() // to emty the div before start filling
+
+            let sele=$('#selected-towns');
+            console.log(sele.find('option').toArray().map(e => e.textContent))
+            let selectedTowns=$('#selected-towns option');
+            let result=[];
+            selectedTowns.each((index,element) => result.push(element.textContent));
+
+          //  console.log(result.join('; '));
+
+            $('#output').append((result.join('; ')));
+        }
+    }
+</script>
+</body>
+</html>
