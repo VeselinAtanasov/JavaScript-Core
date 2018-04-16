@@ -1,0 +1,18 @@
+<form id="create-receipt-form" action="#/checkout" method="post">
+    <div class="col wide">
+    </div>
+    <div class="col wide">
+    </div>
+    <div class="col wide right">Total:</div>
+    {{#if total}}
+        <div class="col">{{total}}</div>
+        {{else}}
+        <div class="col">00.00</div>
+    {{/if}}
+    <div class="col">
+        <input id="checkoutBtn" type="submit" value="Checkout" />
+    </div>
+    <input type="hidden" value="{{currentRecipeId}}" name="currentRecipeId" />
+    <input type="hidden" value="{{productCount}}" name="productCount" />
+    <input type="hidden" value="{{total}}"  name="total"/>
+</form>

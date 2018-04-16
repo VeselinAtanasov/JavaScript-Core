@@ -1,0 +1,30 @@
+{{> header}}
+<div class="content">
+    {{> navigation}}
+    <section id="viewComments">
+        <div class="post">
+            {{> postDetails}}
+        </div>
+        <div class="post post-content">
+            <form id="commentForm" action="#/create/comment/{{post._id}}" method="post">
+                <!--<input type="hidden" name="postId" value="{{post._id}}">-->
+                <label>Comment</label>
+                <textarea name="content" type="text"></textarea>
+                <input type="submit" value="Add Comment" id="btnPostComment">
+            </form>
+        </div>
+        {{#each comments}}
+            {{> commentArticle}}
+        {{else}}
+            <article class="post post-content">
+                <div class="info">
+                    <p>No comments yet.
+                    <p>
+                </div>
+            </article>
+
+        {{/each}}
+
+    </section>
+</div>
+{{> footer}}

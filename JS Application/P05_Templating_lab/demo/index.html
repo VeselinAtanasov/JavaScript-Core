@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<script>
+    /* 1 -> Option
+     //We need to use $.get - but this is asynchronious => then and catch should be used in order to process the response
+     let template  = $.get('div.html')
+     .then(printResult)
+     .catch((data) => console.log(data))
+
+     function printResult(resp) {
+     console.log(resp)
+     }
+     */
+    // 2 -> Option - use async /await:
+    (async function () {
+        let template = await $.get('div.html')
+
+        let content1= template
+            .replace(/{{title}}/g,"Vesko")
+            .replace(/{{body}}/g,"VESELIN")
+
+        $('body')
+            .append(content1)
+            .append(template)
+    })();
+
+
+</script>
+</body>
+</html>
